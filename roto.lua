@@ -41,7 +41,7 @@ function TIC()
   
  for x=0,w do
   for y=0,h do
-   -- compute
+   -- precalculate sin/cos
    s=math.sin(t/45)
    c=math.cos(t/45)
    -- pulsate around center
