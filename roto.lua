@@ -42,20 +42,22 @@ function TIC()
  -- rotation
  s=math.sin(t/45)
  c=math.cos(t/45)
-  
+
  for x=0,w do
+  -- initialize x1, y1, u, v for y = 0
+  x1=x-120+s*120
+  y1=(s-1)*68
+  -- rotate around angle t
+  u=c*x1-s*y1
+  v=s*x1+c*y1
   for y=0,h do
-   -- pulsate around center
-   x1=x-120+s*120
-   y1=y-68+s*68
-   -- rotate around angle t
-   u=c*x1-s*y1
-   v=s*x1+c*y1
    -- checkered pattern
    pix(x,y,(u//1&v//1)/5)
+   u=u-s
+   v=v+c
   end
  end
- 
+
  t=t+1
  if t%120==0 then
   cpal=cpal%#pals+1
